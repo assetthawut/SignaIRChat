@@ -22,6 +22,8 @@
         <ul id="discussion"></ul>
 
         <div id="counter"></div>
+        <div id="asyntest"></div>
+        
     </div> 
     <!--Script references. -->
     <!--Reference the jQuery library. -->
@@ -43,23 +45,45 @@
                  temp = number;
                 }
 
-         
+            count.client.addContosoChatMessageToPage  = function (message) {
+                console.log(message.UserName + ' >>>>>> ' + message.Message);
+            }
+   
 
 
             
             $.connection.hub.start().done(function () {
 
-             //   $("#addvalue").click(function () {
-             //       count.server.countnumber(1);
-             //   });
+                //   $("#addvalue").click(function () {
+                //       count.server.countnumber(1);
+                //   });
 
-             //   if (true == true) {
-             //       count.server.countnumber(1);
-             //   }
+                //   if (true == true) {
+                //       count.server.countnumber(1);
+                //   }
 
                 $("#addvalue").click(function () {
+                    /*
                     count.server.countnumber(1);
+                    count.server.doLongRunningThing(1).done(
+                        
+                        function (progress) {
+                            console.log("Joe" + count.server.doLongRunningThing(1) + " >>>> " + progress);
+                        }
+                    
+
+                    );
+                    console.log("Hi");
+                   */
+                    // Complex Object 
+
+                    console.log("Test Click");
+                    count.server.sendMessage("Joe", "Sett").done();
+                    
+                    
                 });
+
+                console.log("Outer Click");
                 
             });
 

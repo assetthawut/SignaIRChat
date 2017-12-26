@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="specclient.html" />
     <Content Include="complexobject.html" />
     <Content Include="asyntest.html" />
     <Content Include="petercount.html" />

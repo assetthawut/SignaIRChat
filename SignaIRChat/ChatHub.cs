@@ -86,6 +86,11 @@ namespace SignaIRChat
             Clients.All.addContosoChatMessageToPage(new ContosoChatMessage() { UserName = name, Message = message });
         }
 
+        public async Task JoinGroup(String groupName,String chat) {
+            await Groups.Add(Context.ConnectionId, groupName);
+            Clients.Group(groupName).MessageFromGroup(Context.ConnectionId + " Added to  group" + groupName);
+            Clients.Group(groupName).ChatGroup(chat);
 
+        }
     }
 }

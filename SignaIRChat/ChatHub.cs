@@ -87,9 +87,21 @@ namespace SignaIRChat
         }
 
         public async Task JoinGroup(String groupName,String chat) {
+
             await Groups.Add(Context.ConnectionId, groupName);
             Clients.Group(groupName).MessageFromGroup(Context.ConnectionId + " Added to  group" + groupName);
             Clients.Group(groupName).ChatGroup(chat);
+
+        }
+
+        public void HubContext() {
+
+            String connectionID = Context.ConnectionId;
+            //System.Collections.Specialized.NameValueCollection queryString = Context.Request.QueryString;
+            //string parameterValue = queryString["parametername"];
+            System.Collections.Generic.IDictionary<string, Cookie> cookies = Context.Request.Cookies;
+            System.Security.Principal.IPrincipal user = Context.User;
+            System.Web.HttpContextBase httpContext = Context.Request.GetHttpContext();
 
         }
     }
